@@ -1,6 +1,5 @@
 <?php
 
-// 1. Estrutura de Dados (O nosso carrinho)
 $carrinho = [ 
     ["id" => 1, "nome" => "SSD 512GB", "preco" => 280.00, "quantidade" => 1], 
     ["id" => 2, "nome" => "Memória RAM 8GB", "preco" => 150.00, "quantidade" => 2], 
@@ -15,29 +14,27 @@ $carrinho = [
 echo "<h2>Resumo do Pedido</h2>";
 echo "<hr>";
 
-// Variável acumuladora para o total
 $totalGeral = 0;
 
-// 2. O Desafio (Lógica de Percorrer a Matriz)
+
 foreach ($carrinho as $item) {
     // Cálculo do subtotal de cada item (Preço x Quantidade)
     $subtotalItem = $item['preco'] * $item['quantidade'];
     
-    // Acumulando o valor no total geral
     $totalGeral += $subtotalItem;
 
     // Exibindo os dados do item de forma organizada
     echo "<b>Produto:</b> " . $item['nome'] . "<br>";
     echo "Quantidade: " . $item['quantidade'] . "<br>";
+
     
-    // Usando o formatador que você aprendeu: R$ 0,00
     echo "Subtotal: R$ " . number_format($subtotalItem, 2, ',', '.') . "<br>";
     echo "-----------------------------------<br>";
 }
 
 echo "<br>";
 
-// 3. Regra de Negócio: Desconto de 10% se a compra for > R$ 200,00
+
 $valorDesconto = 0;
 
 if ($totalGeral > 200) {
@@ -49,7 +46,7 @@ if ($totalGeral > 200) {
     $totalFinal = $totalGeral;
 }
 
-// 4. Exibição dos Totais Finais
+
 echo "<h3>Resumo Financeiro</h3>";
 echo "Subtotal da Compra: R$ " . number_format($totalGeral, 2, ',', '.') . "<br>";
 
